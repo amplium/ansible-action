@@ -63,12 +63,14 @@ def run(environ: dict[str, str], defer: ExitStack) -> None:
     if "ANSIBLE_REQUIREMENTS" in environ:
         setup_requirements(environ)
 
+    extra_vars = environ.pop("ANSIBLE_EXTRA_VARS", None)
+    options = environ.pop("ANSIBLE_OPTIONS", "")
+
     subprocess.run(
         [
             "ansible-playbook",
-            *shlex.split(
-                environ["ANSIBLE_OPTIONS"] if "ANSIBLE_OPTIONS" in environ else ""
-            ),
+            *shlex.split(options),
+            *(["-e", extra_vars] if extra_vars else []),
             *shlex.split(environ["ANSIBLE_PLAYBOOK"]),
         ],
         check=True,
