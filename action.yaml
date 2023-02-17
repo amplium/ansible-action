@@ -105,4 +105,4 @@ inputs:
 
 runs:
   using: docker
-  image: Dockerfile
+  image: ghcr.io/amplium/ansible-action:latest
