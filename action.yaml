@@ -105,4 +105,4 @@ inputs:
 
 runs:
   using: docker
-  image: Containerfile
+  image: Dockerfile
