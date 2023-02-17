@@ -95,6 +95,7 @@ def main() -> int:
         k.replace("INPUT_", "ANSIBLE_"): os.environ[k]
         for k in os.environ
         if k.startswith("INPUT_")
+        if os.environ[k]
     }
 
     with ExitStack() as defer:
