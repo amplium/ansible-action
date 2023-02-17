@@ -81,7 +81,7 @@ inputs:
   ssh_common_args:
     description: Specify common arguments to pass to ssh/scp/sftp.
     required: false
-  ssh-extra-args:
+  ssh_extra_args:
     description: Specify extra arguments to pass to ssh only.
     required: false
   scp_extra_args:
