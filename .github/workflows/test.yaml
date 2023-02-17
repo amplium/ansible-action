@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: |
+          sed '/image:/s/: .*/: Dockerfile/'
+
       - uses: ./
         with:
           playbook: testdata/playbook.yaml
