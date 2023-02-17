@@ -1,0 +1,22 @@
+---
+name: Test
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./
+        with:
+          playbook: testdata/playbook.yaml
+          inventory: testdata/inventory.yaml
+          requirements: testdata/requirements.yaml
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: false
+          ANSIBLE_DEPRECATION_WARNINGS: false
