@@ -20,6 +20,7 @@ LABEL maintainer="scheatkode <scheatkode@amplium.io>" \
 	org.opencontainers.image.title="Ansible Playbook Action" \
 	org.opencontainers.image.description="Ansible Playbook Action"
 
-COPY main.py /main.py
+COPY ansible.cfg /etc/ansible/ansible.cfg
+COPY main.py     /main.py
 
 ENTRYPOINT ["python", "/main.py"]
