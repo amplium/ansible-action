@@ -6,7 +6,8 @@ RUN set -e \
 	&& apk --update --no-cache add git gnupg openssh-client sshpass rsync openssl \
 	&& pip install --no-cache-dir --upgrade -r /requirements.txt \
 	&& find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf \
-	&& find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf
+	&& find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf \
+	&& rm -f requirements.txt
 
 LABEL maintainer="scheatkode <scheatkode@amplium.io>" \
 	org.opencontainers.image.authors="scheatkode <scheatkode@amplium.io>" \
