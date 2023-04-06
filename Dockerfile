@@ -1,4 +1,4 @@
-FROM docker.io/python:3.11-alpine
+FROM docker.io/python:3.11.3-alpine
 
 COPY requirements.txt /requirements.txt
 
